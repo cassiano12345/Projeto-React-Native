@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nome": "Estagio de Mestrado (Estagio de natureza profissional objecto de relatorio final)",
+    "vagas": 20
+  },
+  {
+    "id": 2,
+    "nome": "Estagio Curricular (inserido no plano de estudos do estudante 4 meses)",
+    "vagas": 30
+  },
+  {
+    "id": 3,
+    "nome": "Estagio Extracurricular (na Condicao de estudante)",
+    "vagas": 20
+  },
+  {
+    "id": 4,
+    "nome": "Estagio Extracurriculomado",
+    "vagas": 5
+  }
+]

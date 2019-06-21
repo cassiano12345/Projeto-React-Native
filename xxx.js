@@ -1,0 +1,356 @@
+// chiamata api utilizzando fetch con  async per   scrivere una chiamata sincrona, ma è sempre asincrona
+
+import React, { Component } from 'react';
+import { StyleSheet, View, TouchableOpacity, Alert ,ScrollView, RefreshControl, TextInput } from 'react-native';
+import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
+import { Constants } from 'expo';
+import {AsyncStorage} from 'react-native';
+import Adicionar_pais from './Adicionar_pais'
+import { Button, Text } from 'react-native-elements';
+import IOSPicker from 'react-native-ios-picker';
+import {id} from './Login';
+
+var animals=[] ;
+var estagio=[] ;
+export default class App extends Component {
+  static navigationOptions = {
+     title: 'Fazer candidatura'
+    };
+constructor(props) {
+  super(props);
+  this.state = {
+    selectedValue: '',
+    email:'',
+    iban: '',
+    swift: '',
+    telefone: '',
+    email: '',
+    pais1:'',
+    pais2: '',
+    pais3: '',
+    tipodeestagio: '',
+    motivacao: '',
+    outraslinguas: '',
+    informacao: '',
+    ano: '',
+    mes: '',
+    refreshing: false,
+    tableHead: ['Nome', 'Botão'],
+    param1: ['', 'Botão'],
+    param2:['', 'Botão'],
+    param3:['', 'Botão'],
+    param4:['', 'Botão'],
+
+  }
+}
+  componentWillMountt = async () =>{
+       try{
+     console.log(this.state.selectedValue);
+
+        const value = await AsyncStorage.getItem('keyID')
+        let base64 = require('base-64');
+        let headers = new Headers();
+        //headers.append('Content-Type', 'text/json');
+        headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
+      //console.log(headers);
+        const response=await fetch('http://192.168.194.253/ProjetoEstagios/web/api/candidaturas', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Basic ' + base64.encode(value + ":" ),
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body:JSON.stringify({
+            iban: this.state.selectedValue,
+            swift: this.state.swift,
+            telefone: this.state.telefone,
+            email: this.state.email,
+            pais1: this.state.pais1,
+            pais2: this.state.pais2,
+            pais3: this.state.pais3,
+            tipodeestagio: this.state.tipodeestagio,
+            motivacao: this.state.motivacao,
+            outraslinguas: this.state.outraslinguas,
+            informacao: this.state.informacao,
+            ano: this.state.ano,
+            mes: this.state.mes,
+            id_aluno: id,
+     }),
+        });
+        Alert.alert(`Candidatura Efetuada`);
+
+        this.setState({  iban: ''})
+        this.setState({  swift: ''})
+        this.setState({  telefone: ''})
+        this.setState({  email: ''})
+        this.setState({  pais1: ''})
+        this.setState({  pais2: ''})
+        this.setState({  pais3: ''})
+        this.setState({  tipodeestagio: ''})
+        this.setState({  motivacao: ''})
+        this.setState({  outraslinguas: ''})
+        this.setState({  informacao: ''})
+        this.setState({  ano: ''})
+        this.setState({  mes: ''})
+
+
+  }catch (errors) {
+
+       alert(errors);
+      }
+}
+  pais1(d, i) {
+      this.setState({pais1: this.state.param1[i]});
+    }
+    pais2(d, i) {
+        this.setState({pais2: this.state.param1[i]});
+      }
+      pais3(d, i) {
+          this.setState({pais3: this.state.param1[i]});
+        }
+        estagio(d, i) {
+            this.setState({tipodeestagio: this.state.param3[i]});
+          }
+          ano(d, i) {
+              this.setState({ano: this.state.param2[i]});
+            }
+            mes(d, i) {
+                this.setState({mes: this.state.param4[i]});
+              }
+async componentWillMount ()
+  {
+    const value = await AsyncStorage.getItem('keyID')
+    let base64 = require('base-64');
+    let headers = new Headers();
+    //headers.append('Content-Type', 'text/json');
+    headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
+  //console.log(headers);
+
+  Promise.all([
+    fetch("http://192.168.194.253/ProjetoEstagios/web/api/pais" , {method:'GET',
+            headers: headers,
+            //credentials: 'user:passwd'
+          }),    fetch("http://192.168.194.253/ProjetoEstagios/web/api/estagios" , {method:'GET',
+                  headers: headers,
+                  //credentials: 'user:passwd'
+                }), fetch("http://192.168.194.253/ProjetoEstagios/web/api/ano" , {method:'GET',
+                        headers: headers,
+                        //credentials: 'user:passwd'
+                      }),
+                      fetch("http://192.168.194.253/ProjetoEstagios/web/api/mes" , {method:'GET',
+                             headers: headers,
+                             //credentials: 'user:passwd'
+                           }),
+    ]).then(async([aa, bb, cc, dd]) => {
+      const a = await aa.json();
+      const b = await bb.json();
+      const c = await cc.json();
+      const d = await dd.json();
+
+      const uniqueAr = [... new Set(a.map(data => data.nome ))];
+var x1=uniqueAr;
+const uniqueA = [... new Set(b.map(data => data.nome ))];
+var x2=uniqueA;
+      const uniqueArr = [... new Set(c.map(data => data.data ))];
+var x3 =uniqueArr;
+const uniqueArrr = [... new Set(d.map(data => data.nome ))];
+var x4 =uniqueArrr;
+      return [x1, x2, x3, x4]
+    })
+    .then((responseText) => {
+      this.setState({  param1: responseText[0]})
+      this.setState({  param2: responseText[2]})
+      this.setState({param3: responseText[1]})
+      this.setState({param4: responseText[3]})
+  //   console.log(this.state.param1[1]);
+
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+
+
+
+  render() {
+
+    const state = this.state;
+     const element = (data, index) => (
+       <TouchableOpacity onPress={() => this._alertIndex(data)}>
+         <View style={styles.btn}>
+           <Text style={styles.btnText}>Ver</Text>
+         </View>
+       </TouchableOpacity>
+     );
+
+    return (
+      <ScrollView style={styles.container}
+              refreshControl={
+                <RefreshControl
+                  refreshing={this.state.refreshing}
+                  onRefresh={this._onRefresh}
+                />
+              }>
+              <Text h4>Fazer Candidatura a Estagio</Text>
+              <Text h5>Iban</Text>
+
+              <TextInput
+                        value={this.state.selectedValue}
+                        onChangeText={(selectedValue) => this.setState({ selectedValue })}
+                        placeholder={'Iban'}
+                        style={styless.input}
+                      />
+                      <Text h5>Swift</Text>
+
+                      <TextInput
+                                value={this.state.swift}
+                                onChangeText={(swift) => this.setState({ swift })}
+                                placeholder={'Swift'}
+                                style={styless.input}
+                              />
+                              <Text h5>Telefone</Text>
+
+                              <TextInput
+                                        value={this.state.telefone}
+                                        onChangeText={(telefone) => this.setState({ telefone })}
+                                        placeholder={'Telefone'}
+                                        style={styless.input}
+                                      />
+                                      <Text h5>E-mail</Text>
+
+                                      <TextInput
+                                                value={this.state.email}
+                                                onChangeText={(email) => this.setState({ email })}
+                                                placeholder={'E-mail'}
+                                                style={styless.input}
+                                              />
+                                              <Text h5>Pais 1</Text>
+
+                                              <IOSPicker
+                                              style={styles.btn}
+                                              onChangeText={this.componentWillMount}
+                                       data={this.state.param1}
+                                       onValueChange={(d, i)=> this.pais1(d, i)}/>
+                                       <Text h5>Pais 2</Text>
+
+                                       <IOSPicker
+                                       style={styles.btn}
+                                       onChangeText={this.componentWillMount}
+                                data={this.state.param1}
+                                onValueChange={(d, i)=> this.pais2(d, i)}/>
+                                <Text h5>Pais 3</Text>
+
+                                <IOSPicker
+                                style={styles.btn}
+                                onChangeText={this.componentWillMount}
+                         data={this.state.param1}
+                         onValueChange={(d, i)=> this.pais3(d, i)}/>
+                         <Text h5>Selecione o estagio</Text>
+
+                         <IOSPicker
+                         style={styles.btn}
+                         onChangeText={this.componentWillMount}
+                  data={this.state.param3}
+                  onValueChange={(d, i)=> this.estagio(d, i)}/>
+                  <Text h5>Motivacao</Text>
+
+                                                                              <TextInput
+                                                                                        value={this.state.motivacao}
+                                                                                        onChangeText={(motivacao) => this.setState({ motivacao })}
+                                                                                        placeholder={'Motivacao'}
+                                                                                        style={styless.Motivacao}
+                                                                                      />
+                                                                                      <Text h5>Outras Linguas</Text>
+
+                                                                                      <TextInput
+                                                                                                value={this.state.outraslinguas}
+                                                                                                onChangeText={(outraslinguas) => this.setState({ outraslinguas })}
+                                                                                                placeholder={'Outras linguas'}
+                                                                                                style={styless.Motivacao}
+                                                                                              />
+                                                                                              <Text h5>Informação</Text>
+
+                                                                                              <TextInput
+                                                                                                        value={this.state.informacao}
+                                                                                                        onChangeText={(informacao) => this.setState({ informacao })}
+                                                                                                        placeholder={'informacao'}
+                                                                                                        style={styless.Motivacao}
+                                                                                                      />
+                                                                                                      <Text h5>Ano</Text>
+                                                                                                      <IOSPicker
+                                                                                                      style={styles.btn}
+                                                                                                      onChangeText={this.componentWillMount}
+                                                                                               data={this.state.param2}
+                                                                                               onValueChange={(d, i)=> this.ano(d, i)}/>
+                                                                                               <Text h5>Mes</Text>
+                                                                                               <IOSPicker
+                                                                                               style={styles.btn}
+                                                                                               onChangeText={this.componentWillMount}
+                                                                                        data={this.state.param4}
+                                                                                        onValueChange={(d, i)=> this.mes(d, i)}/>
+                                                                                        <Button
+                                                                                        style={[{ width: "30%", margin: 5}]}
+                                                                                        onPress={this.componentWillMountt}
+                                                                                          title="Adicionar"
+                                                                                          color="#841584"
+                                                                                          accessibilityLabel="Adicionar novo ano"
+                                                                                        />
+
+      </ScrollView>
+    );
+
+  }
+}
+//Codigo Css
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#A9A9A9' },
+
+  head: { height: 40, backgroundColor: '#f1f8ff' },
+
+  text: {
+    margin: 6
+  },
+  btn: {
+    width: 200,
+    height: 44,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    backgroundColor: '#A9A9A9'
+   },
+  btnText: {
+    textAlign: 'center',
+    color: '#fff'
+  }
+});
+const styless = StyleSheet.create({
+  container: {     flex: 1,
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1', backgroundColor: '#A9A9A9', },
+
+  text:{
+ width: 200,
+    height: 44,
+    padding: 10,
+    marginBottom: 10,
+  },
+  input: {
+    width: 200,
+    height: 44,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    marginBottom: 10,
+  },
+  Motivacao:{
+
+    width: 200,
+    height: 80,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    marginBottom: 10,
+  }
+});
+export {id};
