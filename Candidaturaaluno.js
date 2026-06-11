@@ -1,22 +1,25 @@
 // chiamata api utilizzando fetch con  async per   scrivere una chiamata sincrona, ma è sempre asincrona
 
 import React, { Component } from 'react';
-import { StyleSheet, View, TouchableOpacity, Alert, RefreshControl,ScrollView } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Alert ,ScrollView ,RefreshControl} from 'react-native';
 import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
 import { Constants } from 'expo';
 import {AsyncStorage} from 'react-native';
 import { Button , Text} from 'react-native-elements';
-
+import {id} from './Login';
 
 var animals=[] ;
-var id;
-
+var idcandidatura;
 export default class App extends Component {
+  static navigationOptions = {
+     title: 'Candidaturas'
+    };
 constructor(props) {
   super(props);
   this.state = {
     refreshing: false,
-    tableHead: ['Nome', 'vagas', 'Botão'],
+
+    tableHead: ['Id Aluno', 'Estagio', 'Data', 'Acção'],
     tableData: [
       ['1', '2'],
       ['a', 'b'],
@@ -27,31 +30,50 @@ constructor(props) {
     param2:""
   }
 }
-_onRefresh = async () => {
-    this.setState({refreshing: true});
-    const value = await AsyncStorage.getItem('keyID')
+  /*
+  componentDidMount(){
 
-    let base64 = require('base-64');
-    let headers = new Headers();
-    //headers.append('Content-Type', 'text/json');
-    headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
-  //console.log(headers);
 
-    const response=await  fetch("http://192.168.1.69/ProjetoEstagios/web/api/estagios" , {method:'GET',
-            headers: headers,
-            //credentials: 'user:passwd'
-           });
-    const resp=await response.json();
-       const students = resp;
-      //  const students = getdata();
-      //Transformando a data em Array
-        const uniqueArr = [... new Set(students.map(data => [data.nome, data.vagas,data.id] ))];
-        animals=uniqueArr;
-        console.log(animals);
+  fetch("https://jsonplaceholder.typicode.com/posts")
+ .then(response => response.json())
 
-          this.setState({refreshing: false});
+ .then(jsonResponse =>{
+   this.setState({ param1:JSON.stringify(jsonResponse[0].title),
+                   param2:JSON.stringify(jsonResponse[0].body)});
+
+});
+
 
   }
+  */
+  _onRefresh = async () => {
+      this.setState({refreshing: true});
+      const value = await AsyncStorage.getItem('keyID')
+
+      let base64 = require('base-64');
+      let headers = new Headers();
+      //headers.append('Content-Type', 'text/json');
+      headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
+    //console.log(headers);
+
+      const response=await  fetch("http://192.168.1.69/ProjetoEstagios/web/api/candidatura" , {method:'GET',
+              headers: headers,
+              //credentials: 'user:passwd'
+             });
+      const resp=await response.json();
+         const students = resp;
+         const space = students.filter(x => x.id_aluno === (id));
+         console.log(space);
+        //  const students = getdata();
+        //Transformando a data em Array
+          const uniqueArr = [... new Set(space.map(data => [data.id_aluno, data.tipodeestagio, data.ano, data.id] ))];
+          animals=uniqueArr;
+          console.log(animals);
+            this.setState({refreshing: false});
+    }
+
+
+
 
 
 async componentWillMount ()
@@ -64,24 +86,25 @@ async componentWillMount ()
     headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
   //console.log(headers);
 
-    const response=await  fetch("http://192.168.1.69/ProjetoEstagios/web/api/estagios" , {method:'GET',
+    const response=await  fetch("http://192.168.1.69/ProjetoEstagios/web/api/candidatura" , {method:'GET',
             headers: headers,
             //credentials: 'user:passwd'
            });
     const resp=await response.json();
        const students = resp;
+       const space = students.filter(x => x.id_aluno === (id));
+       console.log(space);
       //  const students = getdata();
       //Transformando a data em Array
-        const uniqueArr = [... new Set(students.map(data => [data.nome, data.vagas,data.id] ))];
+        const uniqueArr = [... new Set(space.map(data => [data.id_aluno, data.tipodeestagio, data.ano, data.id] ))];
         animals=uniqueArr;
         console.log(animals);
      this.setState({param1:JSON.stringify(resp[0].id), param2:JSON.stringify(resp[0].nome)})
 
   }
   _alertIndex(index) {
-      id=index;
-      console.log(id);
-      return  this.props.navigation.navigate('EditarEstagio');
+idcandidatura=index;
+    return  this.props.navigation.navigate('EditarCandidaturaAluno');
 
     }
   render() {
@@ -95,20 +118,19 @@ async componentWillMount ()
      );
 
     return (
-      <ScrollView
-      style={styles.container}
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.refreshing}
-            onRefresh={this._onRefresh}
-          />
-        }
-          >
-          <Text h4>Tabela dos Estagios</Text>
+      <ScrollView style={styles.container}
+      refreshControl={
+        <RefreshControl
+          refreshing={this.state.refreshing}
+          onRefresh={this._onRefresh}
+        />
+      }
+      >
+          <Text h4>Minha candidatura</Text>
 
       <Button
       style={[{ width: "30%", margin: 5}]}
-      onPress={() => this.props.navigation.navigate('Adicionar_Estagio')}
+      onPress={() => this.props.navigation.navigate('Fazer_candidatura')}
         title="Adicionar"
         color="#841584"
         accessibilityLabel="Adicionar novo ano"
@@ -120,20 +142,20 @@ async componentWillMount ()
              <TableWrapper key={index} style={styles.row}>
                {
                  rowData.map((cellData, cellIndex) => (
-                   <Cell key={cellIndex} data={cellIndex === 2 ? element(cellData, index) : cellData} textStyle={styles.text}/>
+                   <Cell key={cellIndex} data={cellIndex === 3 ? element(cellData, index) : cellData} textStyle={styles.text}/>
                  ))
                }
              </TableWrapper>
            ))
          }
        </Table>
-       </ScrollView>
+      </ScrollView>
     );
   }
 }
 //Codigo Css
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#A9A9A9', },
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#A9A9A9' },
 
   head: { height: 40, backgroundColor: '#f1f8ff' },
 
@@ -155,4 +177,4 @@ const styles = StyleSheet.create({
     color: '#fff'
   }
 });
-export {id};
+export {idcandidatura};

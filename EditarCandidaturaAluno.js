@@ -7,13 +7,13 @@ import { Constants } from 'expo';
 import {AsyncStorage} from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import IOSPicker from 'react-native-ios-picker';
-import {id} from './Candidatura.js';
+import {idcandidatura} from './Candidaturaaluno.js';
 
 var animals=[] ;
 var estagio=[] ;
 export default class App extends Component {
   static navigationOptions = {
-     title: 'candidatura'
+     title: 'Candidatura'
     };
 constructor(props) {
   super(props);
@@ -74,7 +74,7 @@ constructor(props) {
                   headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
                 console.log(headers);
 
-                  const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/candidaturas/'+ id, {
+                  const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/candidaturas/'+ idcandidatura, {
                     method: 'PUT',
                     headers: {
                       'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -174,7 +174,7 @@ constructor(props) {
                                              headers: headers,
                                              //credentials: 'user:passwd'
                                            }),
-                                           fetch('http://192.168.1.69/ProjetoEstagios/web/api/candidaturas/' + id , {method:'GET',
+                                           fetch('http://192.168.1.69/ProjetoEstagios/web/api/candidaturas/' + idcandidatura , {method:'GET',
                                                   headers: headers,
                                                   //credentials: 'user:passwd'
                                                 }),
@@ -245,7 +245,7 @@ async componentWillMount ()
                              headers: headers,
                              //credentials: 'user:passwd'
                            }),
-                           fetch('http://192.168.1.69/ProjetoEstagios/web/api/candidaturas/' + id , {method:'GET',
+                           fetch('http://192.168.1.69/ProjetoEstagios/web/api/candidaturas/' + idcandidatura , {method:'GET',
                                   headers: headers,
                                   //credentials: 'user:passwd'
                                 }),
@@ -291,108 +291,6 @@ var x4 =uniqueArrr;
     });
   }
 
-  aceitar = async () =>{
-    const value = await AsyncStorage.getItem('keyID')
-    let base64 = require('base-64');
-    let headers = new Headers();
-    //headers.append('Content-Type', 'text/json');
-    headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
-  //console.log(headers);
-
-  Promise.all([
-    fetch("http://192.168.1.69/ProjetoEstagios/web/api/candidatura" , {method:'GET',
-            headers: headers,
-            //credentials: 'user:passwd'
-          }),
-          fetch("http://192.168.1.69/ProjetoEstagios/web/api/users" , {method:'GET',
-                  headers: headers,
-                  //credentials: 'user:passwd'
-                }),
-    ]).then(async([aa,bb]) => {
-      const a = await aa.json();
-      const b = await bb.json();
-
-      let url = a.find(obj => obj.id === (id));
-      let user = b.find(obj => obj.id === (url.id_aluno));
-const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/resultados', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Basic ' + base64.encode(value + ":" ),
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body:JSON.stringify({
-    username:user.username,
-    mensagem:'Parabens o seu estagio foi aceite.',
-      resultado:'Apto',
-      id_func: 0,
-      id_aluno:url.id_aluno,
-      tipo_de_estagio:url.tipodeestagio,
-      	id_candidatura_id: id,
-}),
-});
-Alert.alert(`Candidatura Aceite`);
-
-    })
-
-    .catch((err) => {
-      console.log(err);
-    });
-
-  }
-
-  rejeitar = async () =>{
-    const value = await AsyncStorage.getItem('keyID')
-    let base64 = require('base-64');
-    let headers = new Headers();
-    //headers.append('Content-Type', 'text/json');
-    headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
-  //console.log(headers);
-
-  Promise.all([
-    fetch("http://192.168.1.69/ProjetoEstagios/web/api/candidatura" , {method:'GET',
-            headers: headers,
-            //credentials: 'user:passwd'
-          }),
-          fetch("http://192.168.1.69/ProjetoEstagios/web/api/users" , {method:'GET',
-                  headers: headers,
-                  //credentials: 'user:passwd'
-                }),
-    ]).then(async([aa,bb]) => {
-      const a = await aa.json();
-      const b = await bb.json();
-
-      let url = a.find(obj => obj.id === (id));
-      let user = b.find(obj => obj.id === (url.id_aluno));
-const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/resultados', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Basic ' + base64.encode(value + ":" ),
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body:JSON.stringify({
-    username:user.username,
-    mensagem:'Infelizmente o seu estagio não foi aceite',
-      resultado:'Não Apto',
-      id_func: 0,
-      id_aluno:url.id_aluno,
-      tipo_de_estagio:url.tipodeestagio,
-      	id_candidatura_id: id,
-}),
-});
-Alert.alert(`Candidatura Rejeitada`);
-
-    })
-
-    .catch((err) => {
-      console.log(err);
-    });
-
-  }
-
-
-
   componentWillMounttt = async () =>{
  try{
       const value = await AsyncStorage.getItem('keyID')
@@ -402,7 +300,7 @@ Alert.alert(`Candidatura Rejeitada`);
       headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
     //console.log(headers);
 
-      const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/candidaturas/'+ id, {
+      const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/candidaturas/'+ idcandidatura, {
         method: 'DELETE',
         headers: {
           'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -460,22 +358,7 @@ Alert.alert(`Candidatura Rejeitada`);
                   onRefresh={this._onRefresh}
                 />
               }>
-              <Text h4>Aceitar/Rejeitar Candidatura a Estagio</Text>
-
-              <Button
-              style={[{ width: "30%", margin: 5}]}
-              onPress={this.aceitar}
-                title="Aceitar"
-                color="#841584"
-                accessibilityLabel="Adicionar novo ano"
-              />
-              <Button
-              style={[{ width: "30%", margin: 5}]}
-              onPress={this.rejeitar}
-                title="Rejeitar"
-                color="#841584"
-                accessibilityLabel="Adicionar novo ano"
-              />
+              <Text h4>Alterar/Eliminar minha Candidatura</Text>
               <Text h5>Iban</Text>
               <TextInput
                         value={this.state.selectedValue}
@@ -641,4 +524,3 @@ const styless = StyleSheet.create({
     marginBottom: 10,
   }
 });
-export {id};

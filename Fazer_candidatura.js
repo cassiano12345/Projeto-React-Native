@@ -53,7 +53,7 @@ constructor(props) {
         //headers.append('Content-Type', 'text/json');
         headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
       //console.log(headers);
-        const response=await fetch('http://194.210.91.78/ProjetoEstagios/web/api/candidaturas', {
+        const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/candidaturas', {
           method: 'POST',
           headers: {
             'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -127,17 +127,17 @@ async componentWillMount ()
   //console.log(headers);
 
   Promise.all([
-    fetch("http://194.210.91.78/ProjetoEstagios/web/api/pais" , {method:'GET',
+    fetch("http://192.168.1.69/ProjetoEstagios/web/api/pais" , {method:'GET',
             headers: headers,
             //credentials: 'user:passwd'
-          }),    fetch("http://194.210.91.78/ProjetoEstagios/web/api/estagios" , {method:'GET',
+          }),    fetch("http://192.168.1.69/ProjetoEstagios/web/api/estagios" , {method:'GET',
                   headers: headers,
                   //credentials: 'user:passwd'
-                }), fetch("http://194.210.91.78/ProjetoEstagios/web/api/ano" , {method:'GET',
+                }), fetch("http://192.168.1.69/ProjetoEstagios/web/api/ano" , {method:'GET',
                         headers: headers,
                         //credentials: 'user:passwd'
                       }),
-                      fetch("http://194.210.91.78/ProjetoEstagios/web/api/mes" , {method:'GET',
+                      fetch("http://192.168.1.69/ProjetoEstagios/web/api/mes" , {method:'GET',
                              headers: headers,
                              //credentials: 'user:passwd'
                            }),

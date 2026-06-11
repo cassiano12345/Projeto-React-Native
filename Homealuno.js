@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet ,Button, View, Text } from 'react-native';
 import { createDrawerNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 import Fazer_candidatura from "./Fazer_candidatura";
-import Candidatura from "./Candidatura";
+import Candidaturaaluno from "./Candidaturaaluno";
 import Resultados_aluno from "./Resultados_aluno";
 
 import { DrawerActions } from 'react-navigation';
@@ -47,8 +47,8 @@ export default createAppContainer(createDrawerNavigator({
   Fazer_candidatura: {
     screen: Fazer_candidatura
   },
-  Candidatura: {
-    screen: Candidatura
+  Candidaturaaluno: {
+    screen: Candidaturaaluno
   },
   Resultados_aluno: {
     screen: Resultados_aluno

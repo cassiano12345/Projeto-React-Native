@@ -17,6 +17,8 @@ import EditarCandidatura from "./EditarCandidatura";
 import Cadastrar_aluno from "./Cadastrar_aluno";
 import Resultados_aluno from "./Resultados_aluno";
 import CandidaturaCompleta from "./CandidaturaCompleta";
+import EditarResultado from "./EditarResultado";
+import EditarCandidaturaAluno from "./EditarCandidaturaAluno";
 
 //Criando o TabNavigator
 const Project= createStackNavigator({
@@ -64,6 +66,12 @@ const Project= createStackNavigator({
   },
   CandidaturaCompleta: {
    screen: CandidaturaCompleta
+  },
+  EditarResultado: {
+   screen: EditarResultado
+  },
+  EditarCandidaturaAluno: {
+   screen: EditarCandidaturaAluno
   },
 });
 export default createAppContainer(Project);

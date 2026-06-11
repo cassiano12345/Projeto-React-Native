@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TouchableOpacity, Alert, Navigate, TextInput, Picker } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Alert, Navigate, TextInput } from 'react-native';
 import { createBottomTabNavigator, createAppContainer, createSnackNavigator} from 'react-navigation';
 import { Button , Text} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -7,19 +7,19 @@ import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
 import { Constants } from 'expo';
 import {AsyncStorage} from 'react-native';
 import { DrawerActions } from 'react-navigation';
-import {id} from './Ano.js';
+import {id} from './Resultado.js';
 
 class Home1 extends React.Component {
  static navigationOptions = {
-    title: 'Editar/Eliminar Ano'
+    title: 'Editar/Eliminar Resultado'
    };
      constructor(props) {
     super(props);
     this.state = {
-      isVisible: false,
-
-      data: '',
-      password: '',
+      username: '',
+      resultado: '',
+      mensagem:'',
+      tipo_de_estagio:''
     };
      }
 //Dando um alert ao Botão para efetuar a soma dos valores dos imputes
@@ -27,7 +27,6 @@ class Home1 extends React.Component {
 
 
   componentWillMounttt = async () =>{
-    console.log(id);
  try{
       const value = await AsyncStorage.getItem('keyID')
       let base64 = require('base-64');
@@ -36,7 +35,7 @@ class Home1 extends React.Component {
       headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
     //console.log(headers);
 
-      const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/anos/'+ id, {
+      const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/resultados/'+ id, {
         method: 'PUT',
         headers: {
           'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -44,18 +43,23 @@ class Home1 extends React.Component {
           'Content-Type': 'application/json',
         },
         body:JSON.stringify({
-          data: this.state.data,
+          username: this.state.username,
+          resultado: this.state.resultado,
+          mensagem: this.state.mensagem,
+          tipo_de_estagio: this.state.tipo_de_estagio,
+
    }),
       });
-      Alert.alert(`Ano Editado`);
+      Alert.alert(`Pais Editado`);
 
-      this.setState({  data: ''})
+      this.setState({  username: ''})
 
 }catch (errors) {
 
      alert(errors);
     }
     }
+
 
     componentWillMount = async () =>{
    try{
@@ -66,7 +70,7 @@ class Home1 extends React.Component {
         headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
       //console.log(headers);
 
-        const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/anos/'+ id, {
+        const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/resultados/'+ id, {
           method: 'GET',
           headers: {
             'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -75,8 +79,11 @@ class Home1 extends React.Component {
           },
         });
         const resp=await response.json();
-          this.setState({  data:resp.data});
-console.log(this.state.data);
+          this.setState({  username:resp.username});
+          this.setState({  resultado:resp.resultado});
+          this.setState({  mensagem:resp.mensagem});
+          this.setState({  tipo_de_estagio:resp.tipo_de_estagio});
+
   }catch (errors) {
 
        alert(errors);
@@ -91,7 +98,7 @@ console.log(this.state.data);
         headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
       //console.log(headers);
 
-        const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/anos/'+ id, {
+        const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/resultados/'+ id, {
           method: 'DELETE',
           headers: {
             'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -99,12 +106,16 @@ console.log(this.state.data);
             'Content-Type': 'application/json',
           },
           body:JSON.stringify({
-            data: this.state.data,
+            nome: this.state.username,
      }),
         });
-        Alert.alert(`Data Eliminado`);
+        Alert.alert(`Resultado Eliminado`);
 
-        this.setState({  data: ''})
+        this.setState({  username: ''})
+        this.setState({  resultado: ''})
+        this.setState({  mensagem: ''})
+        this.setState({  tipo_de_estagio: ''})
+
 
   }catch (errors) {
 
@@ -115,14 +126,39 @@ console.log(this.state.data);
   //  console.log(id);
     return (
       <View style={styless.container}>
-      <Text h4>Adicionar/Eliminar Ano</Text>
+      <Text h4>Editar/Eliminar Resultado</Text>
+      <Text h5>Username</Text>
 
 <TextInput
-          value={this.state.data}
-          onChangeText={(data) => this.setState({ data })}
-          placeholder={'Ano'}
+          value={this.state.username}
+          onChangeText={(username) => this.setState({ username })}
+          placeholder={'Username'}
           style={styless.input}
         />
+        <Text h5>Resultado</Text>
+
+        <TextInput
+                  value={this.state.resultado}
+                  onChangeText={(resultado) => this.setState({ resultado })}
+                  placeholder={'Resultado'}
+                  style={styless.input}
+                />
+                <Text h5>Mensagem</Text>
+
+                <TextInput
+                          value={this.state.mensagem}
+                          onChangeText={(mensagem) => this.setState({ mensagem })}
+                          placeholder={'Mensagem'}
+                          style={styless.input}
+                        />
+                        <Text h5>Tipo de Estagio</Text>
+
+                        <TextInput
+                                  value={this.state.tipo_de_estagio}
+                                  onChangeText={(tipo_de_estagio) => this.setState({ tipo_de_estagio })}
+                                  placeholder={'Tipo de Estagio'}
+                                  style={styless.input}
+                                />
         <Button
         style={{ left: -50}}
 
@@ -135,7 +171,6 @@ console.log(this.state.data);
           title={'Eliminar'}
           onPress={this.componentWillMountt}
         />
-
   </View>
     );
   }

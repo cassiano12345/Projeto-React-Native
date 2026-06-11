@@ -39,7 +39,7 @@ _onRefresh = async () => {
     headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
   //console.log(headers);
 
-    const response=await  fetch("http://194.210.91.78/ProjetoEstagios/web/api/pais" , {method:'GET',
+    const response=await  fetch("http://192.168.1.69/ProjetoEstagios/web/api/pais" , {method:'GET',
             headers: headers,
             //credentials: 'user:passwd'
            });
@@ -66,7 +66,7 @@ async componentWillMount ()
     headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
   //console.log(headers);
 
-    const response=await  fetch("http://194.210.91.78/ProjetoEstagios/web/api/pais" , {method:'GET',
+    const response=await  fetch("http://192.168.1.69/ProjetoEstagios/web/api/pais" , {method:'GET',
             headers: headers,
             //credentials: 'user:passwd'
            });

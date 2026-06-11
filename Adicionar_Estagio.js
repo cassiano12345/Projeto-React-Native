@@ -34,7 +34,7 @@ class Home1 extends React.Component {
       headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
     //console.log(headers);
 
-      const response=await fetch('http://194.210.91.78/ProjetoEstagios/web/api/estagios', {
+      const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/estagios', {
         method: 'POST',
         headers: {
           'Authorization': 'Basic ' + base64.encode(value + ":" ),

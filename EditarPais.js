@@ -33,7 +33,7 @@ class Home1 extends React.Component {
       headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
     //console.log(headers);
 
-      const response=await fetch('http://194.210.91.78/ProjetoEstagios/web/api/pais/'+ id, {
+      const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/pais/'+ id, {
         method: 'PUT',
         headers: {
           'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -64,7 +64,7 @@ class Home1 extends React.Component {
         headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
       //console.log(headers);
 
-        const response=await fetch('http://194.210.91.78/ProjetoEstagios/web/api/pais/'+ id, {
+        const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/pais/'+ id, {
           method: 'GET',
           headers: {
             'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -89,7 +89,7 @@ class Home1 extends React.Component {
         headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
       //console.log(headers);
 
-        const response=await fetch('http://194.210.91.78/ProjetoEstagios/web/api/pais/'+ id, {
+        const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/pais/'+ id, {
           method: 'DELETE',
           headers: {
             'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -113,7 +113,7 @@ class Home1 extends React.Component {
   //  console.log(id);
     return (
       <View style={styless.container}>
-      <Text h4>Adicionar/Eliminar País</Text>
+      <Text h4>Editar/Eliminar País</Text>
 
 <TextInput
           value={this.state.username}

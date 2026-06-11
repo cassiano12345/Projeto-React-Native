@@ -9,7 +9,7 @@ import { Text} from 'react-native-elements';
 
 
 var animals=[] ;
-
+var id;
 export default class App extends Component {
 constructor(props) {
   super(props);
@@ -53,7 +53,7 @@ constructor(props) {
       headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
     //console.log(headers);
 
-      const response=await  fetch("http://194.210.91.78/ProjetoEstagios/web/api/resultado" , {method:'GET',
+      const response=await  fetch("http://192.168.1.69/ProjetoEstagios/web/api/resultado" , {method:'GET',
               headers: headers,
               //credentials: 'user:passwd'
              });
@@ -77,7 +77,7 @@ async componentWillMount ()
     headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
   //console.log(headers);
 
-    const response=await  fetch("http://194.210.91.78/ProjetoEstagios/web/api/resultado" , {method:'GET',
+    const response=await  fetch("http://192.168.1.69/ProjetoEstagios/web/api/resultado" , {method:'GET',
             headers: headers,
             //credentials: 'user:passwd'
            });
@@ -92,8 +92,11 @@ async componentWillMount ()
 
   }
   _alertIndex(index) {
-      Alert.alert(`Esta é a linha numero: ${index}`);
-    }
+    id=index;
+    console.log(id);
+    return  this.props.navigation.navigate('EditarResultado');
+
+   }
   render() {
     const state = this.state;
      const element = (data, index) => (
@@ -154,3 +157,4 @@ const styles = StyleSheet.create({
     color: '#fff'
   }
 });
+export {id};

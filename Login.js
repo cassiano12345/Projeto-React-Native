@@ -110,7 +110,7 @@ class Home1 extends React.Component {
 
      json_function = () =>{
        let base64 = require('base-64');
-       let url = 'http://194.210.91.78/ProjetoEstagios/web/api/auth';
+       let url = 'http://192.168.1.69/ProjetoEstagios/web/api/auth';
        let { username, password } = this.state;
        if(username != '' && password != ''){
        let headers = new Headers();
@@ -128,7 +128,7 @@ class Home1 extends React.Component {
       //console.log(token);
          if(token!=null ){
 
-           fetch('http://194.210.91.78/ProjetoEstagios/web/api/user')
+           fetch('http://192.168.1.69/ProjetoEstagios/web/api/user')
            .then(response => response.json())
            .then((responseJson) =>{
 

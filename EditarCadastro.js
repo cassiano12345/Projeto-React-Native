@@ -36,7 +36,7 @@ try{
     headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
   //console.log(headers);
 
-    const response=await fetch('http://194.210.91.78/ProjetoEstagios/web/api/users/'+ id, {
+    const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/users/'+ id, {
       method: 'PUT',
       headers: {
         'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -72,7 +72,7 @@ try{
       headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
     //console.log(headers);
 
-      const response=await fetch('http://194.210.91.78/ProjetoEstagios/web/api/users/'+ id, {
+      const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/users/'+ id, {
         method: 'GET',
         headers: {
           'Authorization': 'Basic ' + base64.encode(value + ":" ),
@@ -102,7 +102,7 @@ try{
         headers.append('Authorization', 'Basic ' + base64.encode(value + ":" ));
       //console.log(headers);
 
-        const response=await fetch('http://194.210.91.78/ProjetoEstagios/web/api/users/'+ id, {
+        const response=await fetch('http://192.168.1.69/ProjetoEstagios/web/api/users/'+ id, {
           method: 'DELETE',
           headers: {
             'Authorization': 'Basic ' + base64.encode(value + ":" ),

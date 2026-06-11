@@ -63,10 +63,10 @@ constructor(props) {
       //console.log(headers);
 
       Promise.all([
-        fetch("http://194.210.91.78/ProjetoEstagios/web/api/candidatura" , {method:'GET',
+        fetch("http://192.168.1.69/ProjetoEstagios/web/api/candidatura" , {method:'GET',
                 headers: headers,
                 //credentials: 'user:passwd'
-              }),    fetch("http://194.210.91.78/ProjetoEstagios/web/api/resultado" , {method:'GET',
+              }),    fetch("http://192.168.1.69/ProjetoEstagios/web/api/resultado" , {method:'GET',
                       headers: headers,
                       //credentials: 'user:passwd'
                     }),
@@ -110,10 +110,10 @@ constructor(props) {
       //console.log(headers);
 
       Promise.all([
-        fetch("http://194.210.91.78/ProjetoEstagios/web/api/candidatura" , {method:'GET',
+        fetch("http://192.168.1.69/ProjetoEstagios/web/api/candidatura" , {method:'GET',
                 headers: headers,
                 //credentials: 'user:passwd'
-              }),    fetch("http://194.210.91.78/ProjetoEstagios/web/api/resultado" , {method:'GET',
+              }),    fetch("http://192.168.1.69/ProjetoEstagios/web/api/resultado" , {method:'GET',
                       headers: headers,
                       //credentials: 'user:passwd'
                     }),
