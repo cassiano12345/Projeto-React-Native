@@ -6,10 +6,15 @@ Na parte dos alunos, eles pondem fazer login e obter o token de acesso, fazer ca
 
 
 ### Algumas funcionalidades a destacar
-Ficheiro->
+Ficheiro-> Login.js
 
-***Funções***
+***Funções*** <br/>
+- json_function: A função tem como objetivo fazer o login com auxilio da API, no headers é enviado o username e a password, que fora criptografados em base64, e como resposta vem dois valores importantes em JSON, o access token, e um valor de nome superadmin, criado na base de dados, que serve para diferenciar se o utilizador que fez o login é administrador, ou aluno, se o falor obtido na resposta foi 1, significa que o utilizador é administrador, se for 0 significa que o utilizador é aluno.
 
+Ficheiro-> Resutados_aluno.js 
+- componentWillMount: A função serve para buscar os resultados das condidaturas a estagio aplicadas pelo aluno, para tal foi usada a API, onde no headers foi incluido o token de acesso, de forma a vertificar se o utilizador tem permisão para aceder a funcionalidade.
+
+- _onRefresh: A função serve para atualizar a tabela dos resultados, por meio da API, e do token de acesso.
 
 ***Imagens***
 
