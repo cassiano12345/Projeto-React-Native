@@ -25,12 +25,6 @@ Ficheiro->
   <img src="Imagens da aplicação/Pagina de login.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Página de admin***
-
-<p align="center">
-  <img src="Imagens da aplicação/Menu de utilizador admin.jpg" alt="OpenMontage" width="230">
-</p>
-
 ***Menu de utilizador admin***
 
 <p align="center">
@@ -42,5 +36,24 @@ Ficheiro->
 <p align="center">
   <img src="Imagens da aplicação/Tabela de utilizadores admin.jpg" alt="OpenMontage" width="230">
 </p>
+
+***Adicionar ou eliminar aluno***
+
+<p align="center">
+  <img src="Imagens da aplicação/adicionar ou eliminar aluno.jpg" alt="OpenMontage" width="230">
+</p>
+
+***Tabela de estagios admin***
+
+<p align="center">
+  <img src="Imagens da aplicação/Tabela de estagios admin.jpg" alt="OpenMontage" width="230">
+</p>
+
+***Adicionar ou eliminar estagios***
+
+<p align="center">
+  <img src="Imagens da aplicação/adicionar ou eliminar estagios.jpg" alt="OpenMontage" width="230">
+</p>
+
 
 ***Links***
