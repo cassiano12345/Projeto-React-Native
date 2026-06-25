@@ -56,10 +56,17 @@ Ficheiro->
 </p>
 
 ***Candidaturas por avaliar*** <br/>
-A imagem a baixo mostra as candidaturas de alunos que o funcionário tem a avaliar.
+A imagem a baixo mostra a tabela de candidaturas de alunos que o funcionário tem a avaliar.
 
 <p align="center">
   <img src="Imagens da aplicação/Avaliar candidatuas admin.jpg" alt="OpenMontage" width="230">
+</p>
+
+***Visualizar candidatura*** <br/>
+A imagem a baixo mostra os datalhes da candidatura do aluno, e o funcionario tem a opção de aceitar ou rejeitar a candidatura.
+
+<p align="center">
+  <img src="Imagens da aplicação/Analisar candidatura de aluno.jpg" alt="OpenMontage" width="230">
 </p>
 
 ***Links***
