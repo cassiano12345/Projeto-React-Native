@@ -13,31 +13,31 @@ Ficheiro->
 
 ***Imagens***
 
-***Página principal***
+***Página principal*** <br/>
 Na imagem a baixo é possivel ver a pagina principal da aplicação, onde tem um tab navigation, que leva nos a pagina de login.
 <p align="center">
   <img src="Imagens da aplicação/Pagina de principal.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Página de login***
+***Página de login*** <br/>
 Na imagem a baixo é possivel ver a página de login onde tem as caixas de texto para username e password, bem como visualizar a password.
 <p align="center">
   <img src="Imagens da aplicação/Pagina de login.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Menu de utilizador admin***
+***Menu de utilizador admin*** <br/>
 Na imagem a baixo é possivel ver o menu de utilizador do administrador, onde tem a opção de ver cadastros dos utilizadoes, ver as candidaturas dos alunos, os resultados das candidaturas, ver os estagios disponiveis, adicionar pais de estagios, e ano de candidatura. 
 <p align="center">
   <img src="Imagens da aplicação/Menu de utilizador admin.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Tabela de utilizadores admin***
+***Tabela de utilizadores admin*** <br/>
 Na imagem a baixo mostra a tabela de utilizador, onde tem a opção de adicionar mais utilizadores, bem como visualizar com mais detalhes os utilizadores, editar ou eliminar.
 <p align="center">
   <img src="Imagens da aplicação/Tabela de utilizadores admin.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Editar ou eliminar utilizador***<br/>
+***Editar ou eliminar utilizador*** <br/>
 Na imagem a baixo mostra a opção de editar ou eliminar utilizador. 
 <p align="center">
   <img src="Imagens da aplicação/adicionar ou eliminar aluno.jpg" alt="OpenMontage" width="230">
