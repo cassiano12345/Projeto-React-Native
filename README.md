@@ -13,4 +13,9 @@ Ficheiro->
 
 ***Imagens***
 
+***Página principal***
+<p align="center">
+  <img src="Imagens da aplicação/Pagina de principal.png" alt="OpenMontage" width="700">
+</p>
+
 ***Links***
