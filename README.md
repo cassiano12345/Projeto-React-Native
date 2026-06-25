@@ -69,21 +69,21 @@ A imagem a baixo mostra os detalhes da candidatura do aluno, e o funcionario tem
   <img src="Imagens da aplicação/Analisar candidatura de aluno.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Menu de utilizador Aluno** <br/>
+***Menu de utilizador Aluno*** <br/>
 Na imagem a baixo é possivel ver o menu de utilizador do administrador, onde tem as opções de fazer candidatura, ver as candidaturas aplicadas, e ver os resultados.
 
 <p align="center">
   <img src="Imagens da aplicação/Menu de utilizador aluno.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Visualizar a candidatura aluno** <br/>
+***Visualizar a candidatura aluno*** <br/>
 Na imagem a baixo mostra a tabela onde o aluno pode ver as candidaturas por ele aplicadas.
 
 <p align="center">
   <img src="Imagens da aplicação/Visualizar candidatura.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Resultado das candidaturas aluno** <br/>
+***Resultado das candidaturas aluno*** <br/>
 Na imagem a baixo mostra a tabela onde o aluno pode ver o resultado das candidaturas feitas por ele.
 
 <p align="center">
