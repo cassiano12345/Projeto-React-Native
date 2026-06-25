@@ -14,8 +14,21 @@ Ficheiro->
 ***Imagens***
 
 ***Página principal***
+
 <p align="center">
-  <img src="Imagens da aplicação/Pagina de principal.png" alt="OpenMontage" width="700">
+  <img src="Imagens da aplicação/Pagina de principal.jpg" alt="OpenMontage" width="230">
+</p>
+
+***Página de login***
+
+<p align="center">
+  <img src="Imagens da aplicação/Pagina de login.jpg" alt="OpenMontage" width="230">
+</p>
+
+***Página de admin***
+
+<p align="center">
+  <img src="Imagens da aplicação/Menu de utilizador admin.jpg" alt="OpenMontage" width="230">
 </p>
 
 ***Links***
