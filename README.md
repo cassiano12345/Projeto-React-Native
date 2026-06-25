@@ -31,4 +31,16 @@ Ficheiro->
   <img src="Imagens da aplicação/Menu de utilizador admin.jpg" alt="OpenMontage" width="230">
 </p>
 
+***Menu de utilizador admin***
+
+<p align="center">
+  <img src="Imagens da aplicação/Menu de utilizador admin.jpg" alt="OpenMontage" width="230">
+</p>
+
+***Tabela de utilizadores admin***
+
+<p align="center">
+  <img src="Imagens da aplicação/Tabela de utilizadores admin.jpg" alt="OpenMontage" width="230">
+</p>
+
 ***Links***
