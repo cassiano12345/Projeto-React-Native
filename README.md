@@ -55,5 +55,11 @@ Ficheiro->
   <img src="Imagens da aplicação/adicionar ou eliminar estagios.jpg" alt="OpenMontage" width="230">
 </p>
 
+***Candidaturas por avaliar***
+A imagem a baixo mostra as candidaturas de alunos que o funcionario tem a avaliar.
+
+<p align="center">
+  <img src="Imagens da aplicação/Avaliar candidatuas admin.jpg" alt="OpenMontage" width="230">
+</p>
 
 ***Links***
