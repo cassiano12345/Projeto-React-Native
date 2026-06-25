@@ -14,43 +14,43 @@ Ficheiro->
 ***Imagens***
 
 ***Página principal***
-
+Na imagem a baixo é possivel ver a pagina principal da aplicação, onde tem um tab navigation, que leva nos a pagina de login.
 <p align="center">
   <img src="Imagens da aplicação/Pagina de principal.jpg" alt="OpenMontage" width="230">
 </p>
 
 ***Página de login***
-
+Na imagem a baixo é possivel ver a página de login onde tem as caixas de texto para username e password, bem como visualizar a password.
 <p align="center">
   <img src="Imagens da aplicação/Pagina de login.jpg" alt="OpenMontage" width="230">
 </p>
 
 ***Menu de utilizador admin***
-
+Na imagem a baixo é possivel ver o menu de utilizador do administrador, onde tem a opção de ver cadastros dos utilizadoes, ver as candidaturas dos alunos, os resultados das candidaturas, ver os estagios disponiveis, adicionar pais de estagios, e ano de candidatura. 
 <p align="center">
   <img src="Imagens da aplicação/Menu de utilizador admin.jpg" alt="OpenMontage" width="230">
 </p>
 
 ***Tabela de utilizadores admin***
-
+Na imagem a baixo mostra a tabela de utilizador, onde tem a opção de adicionar mais utilizadores, bem como visualizar com mais detalhes os utilizadores, editar ou eliminar.
 <p align="center">
   <img src="Imagens da aplicação/Tabela de utilizadores admin.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Adicionar ou eliminar aluno***
-
+***Editar ou eliminar utilizador***<br/>
+Na imagem a baixo mostra a opção de editar ou eliminar utilizador. 
 <p align="center">
   <img src="Imagens da aplicação/adicionar ou eliminar aluno.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Tabela de estagios admin***
-
+***Tabela de estágios admin*** <br/>
+A imagem a baixo mostra a tabela de estágios disponiveis, onde tem a opção de adicionar mais estagios, e a opção de visualizar com mais detalhes os estágios disponiveis.
 <p align="center">
   <img src="Imagens da aplicação/Tabela de estagios admin.jpg" alt="OpenMontage" width="230">
 </p>
 
-***Adicionar ou eliminar estagios***
-
+***Adicionar ou eliminar estágios*** <br/>
+Na imagem a baixo mostra a opção de adicionar ou eliminar estagio.
 <p align="center">
   <img src="Imagens da aplicação/adicionar ou eliminar estagios.jpg" alt="OpenMontage" width="230">
 </p>
@@ -63,7 +63,7 @@ A imagem a baixo mostra a tabela de candidaturas de alunos que o funcionário te
 </p>
 
 ***Visualizar candidatura*** <br/>
-A imagem a baixo mostra os datalhes da candidatura do aluno, e o funcionario tem a opção de aceitar ou rejeitar a candidatura.
+A imagem a baixo mostra os detalhes da candidatura do aluno, e o funcionario tem a opção de aceitar ou rejeitar a candidatura.
 
 <p align="center">
   <img src="Imagens da aplicação/Analisar candidatura de aluno.jpg" alt="OpenMontage" width="230">
