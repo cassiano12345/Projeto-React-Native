@@ -11,3 +11,6 @@ Ficheiro->
 ***Funções***
 
 
+***Imagens***
+
+***Links***
