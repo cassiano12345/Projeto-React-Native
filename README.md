@@ -97,5 +97,3 @@ Na imagem a baixo mostra a tabela onde o aluno pode ver o resultado das candidat
 <p align="center">
   <img src="Imagens da aplicação/Resultado das candidaturas.jpg" alt="OpenMontage" width="230">
 </p>
-
-***Links***
